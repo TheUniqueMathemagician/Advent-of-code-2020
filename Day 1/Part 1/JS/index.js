@@ -8,7 +8,8 @@ try {
 } catch (_) {
   process.exit(-1);
 }
-const test = require("./subset_sum");
 
-const results = require("./subset_sum")(input, 6, true, true);
+const results = require("./subset_sum")(input, 2020, true, true);
+
 console.log("Results are :", results);
+console.log("Answer is :", results[0][0] * results[0][1]);
