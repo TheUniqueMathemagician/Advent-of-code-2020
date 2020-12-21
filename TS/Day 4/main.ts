@@ -20,6 +20,8 @@ interface Passport {
 
 let passports: Array<Passport> = [];
 
+const check = true;
+
 passports = file.split("\r\n\r\n").map((e: string) => {
   let raw_byr: string | null = e.match(/(?<=byr:)\S+/gim)?.[0] ?? null;
   let raw_iyr: string | null = e.match(/(?<=iyr:)\S+/gim)?.[0] ?? null;
@@ -28,6 +30,22 @@ passports = file.split("\r\n\r\n").map((e: string) => {
   let raw_hcl: string | null = e.match(/(?<=hcl:)\S+/gim)?.[0] ?? null;
   let raw_ecl: string | null = e.match(/(?<=ecl:)\S+/gim)?.[0] ?? null;
   let raw_pid: string | null = e.match(/(?<=pid:)\S+/gim)?.[0] ?? null;
+
+  // Part 1
+
+  if (!check) {
+    return {
+      byr: raw_byr,
+      iyr: raw_iyr,
+      eyr: raw_eyr,
+      hgt: raw_hgt,
+      hcl: raw_hcl,
+      ecl: raw_ecl,
+      pid: raw_pid
+    } as Passport;
+  }
+
+  // Part 2
 
   let byr: number | null = null;
   if (raw_byr !== null && +raw_byr <= 2002 && +raw_byr >= 1920) {
@@ -97,8 +115,6 @@ passports = file.split("\r\n\r\n").map((e: string) => {
   } as Passport;
 });
 
-// /((?=[\s\S]*byr:[\s\S]+)(?=[\s\S]*iyr:[\s\S]+)(?=[\s\S]*eyr:[\s\S]+)(?=[\s\S]*hgt:[\s\S]+)(?=[\s\S]*hcl:.+)(?=[\s\S]*ecl:[\s\S]+)(?=[\s\S]*pid:[\s\S]+)(?=[\s\S]*cid:[\s\S]+))[\s\S]+/gim
-
 const count = passports.reduce((count: number, passport: Passport) => {
   if (passport.byr === null) return count;
   if (passport.iyr === null) return count;
@@ -111,3 +127,6 @@ const count = passports.reduce((count: number, passport: Passport) => {
 }, 0);
 
 console.log(count);
+
+// Global Regex ( test )
+// /((?=[\s\S]*byr:[\s\S]+)(?=[\s\S]*iyr:[\s\S]+)(?=[\s\S]*eyr:[\s\S]+)(?=[\s\S]*hgt:[\s\S]+)(?=[\s\S]*hcl:.+)(?=[\s\S]*ecl:[\s\S]+)(?=[\s\S]*pid:[\s\S]+)(?=[\s\S]*cid:[\s\S]+))[\s\S]+/gim

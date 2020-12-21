@@ -36,8 +36,10 @@ let seats: Array<number> = seat_positions
   .map(({ row, column }) => row * 8 + column)
   .sort((a, b) => a - b);
 
-// console.log(seats[seats.length - 1]);
+// Part 1
+console.log(seats[seats.length - 1]);
 
+// Part 2
 let seat = seats[0];
 for (let i = 1; i < seats.length; i++) {
   seat++;

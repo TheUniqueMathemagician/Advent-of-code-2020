@@ -9,8 +9,18 @@ try {
 
 import { subset_sum } from "./subset_sum";
 
-const results = subset_sum(input, 2020, { limit: 2, unique: false });
+// Part 1
 
-for (const result of results) {
+const results_1 = subset_sum(input, 2020, { limit: 2, unique: true });
+
+for (const result of results_1) {
+  console.log(result.reduce((a: number, c: number) => a * input[c], 1));
+}
+
+// Part 2
+
+const results_2 = subset_sum(input, 2020, { limit: 2, unique: true });
+
+for (const result of results_2) {
   console.log(result.reduce((a: number, c: number) => a * input[c], 1));
 }
