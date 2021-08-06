@@ -1,0 +1,21 @@
+{
+  "name": "advent-of-code-2020",
+  "version": "1.0.0",
+  "description": "This is my solution for advent of code 2020",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheUniqueMathemagician/Advent-of-code-2020.git"
+  },
+  "author": "TheUniqueMathemagician",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheUniqueMathemagician/Advent-of-code-2020/issues"
+  },
+  "homepage": "https://github.com/TheUniqueMathemagician/Advent-of-code-2020#readme",
+  "dependencies": {
+    "ts-node-dev": "^1.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.13"
+  }
+}
